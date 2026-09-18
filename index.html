@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+<head>
+<meta charset="UTF-8">
+<title>Edney Martins — Curriculum Vitae Sentimental</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBFAF5;
+    --paper-edge:#F1EEE3;
+    --ink:#26241F;
+    --ink-soft:#5B564B;
+    --burgundy:#7A2E2E;
+    --burgundy-soft:#9C4B45;
+    --gold:#A8823B;
+    --rule:#D9D3C2;
+  }
+  [data-theme="dark"]{
+    --paper:#1B1914;
+    --paper-edge:#242019;
+    --ink:#EDE8DA;
+    --ink-soft:#B9B1A0;
+    --burgundy:#D98C7F;
+    --burgundy-soft:#C9756A;
+    --gold:#D3B063;
+    --rule:#3A352A;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --paper:#1B1914;
+      --paper-edge:#242019;
+      --ink:#EDE8DA;
+      --ink-soft:#B9B1A0;
+      --burgundy:#D98C7F;
+      --burgundy-soft:#C9756A;
+      --gold:#D3B063;
+      --rule:#3A352A;
+    }
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper-edge);
+    color:var(--ink);
+    font-family:'EB Garamond', Georgia, serif;
+    padding:48px 20px;
+    display:flex;
+    justify-content:center;
+  }
+  .sheet{
+    width:100%;
+    max-width:760px;
+    background:var(--paper);
+    padding:64px 60px 56px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.08), 0 12px 40px rgba(0,0,0,0.12);
+    position:relative;
+  }
+  .sheet::before{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border:1px solid var(--rule);
+    pointer-events:none;
+  }
+  header{
+    text-align:center;
+    padding-bottom:28px;
+    border-bottom:1px solid var(--rule);
+    margin-bottom:34px;
+  }
+  .kicker{
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:15px;
+    letter-spacing:0.02em;
+    margin:0 0 10px;
+  }
+  h1{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    font-size:52px;
+    line-height:1;
+    margin:0 0 8px;
+    color:var(--ink);
+  }
+  .role{
+    font-size:17px;
+    color:var(--burgundy);
+    font-style:italic;
+    margin:0 0 18px;
+  }
+  .contact-line{
+    font-size:14.5px;
+    color:var(--ink-soft);
+    display:flex;
+    justify-content:center;
+    gap:22px;
+    flex-wrap:wrap;
+  }
+  .contact-line span{white-space:nowrap;}
+  section{margin-bottom:32px;}
+  h2{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:600;
+    font-size:23px;
+    color:var(--burgundy);
+    margin:0 0 4px;
+  }
+  .section-sub{
+    font-size:13.5px;
+    font-style:italic;
+    color:var(--ink-soft);
+    margin:0 0 16px;
+  }
+  h2 + .rule, .section-sub + .rule{
+    border:none;
+    border-top:1px solid var(--rule);
+    margin:0 0 16px;
+  }
+  p{margin:0 0 12px; line-height:1.65; font-size:16.5px;}
+  .lead{font-style:italic; color:var(--ink-soft); font-size:16px;}
+
+  .grid-2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:26px 34px;
+  }
+  @media (max-width:560px){ .grid-2{grid-template-columns:1fr;} }
+
+  .entry{margin-bottom:18px;}
+  .entry:last-child{margin-bottom:0;}
+  .entry-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+    margin-bottom:4px;
+  }
+  .entry-title{font-weight:600; font-size:16.5px;}
+  .entry-date{font-size:13.5px; color:var(--gold); font-style:italic; white-space:nowrap;}
+  .entry-desc{font-size:15.5px; color:var(--ink-soft); margin:0;}
+
+  .skills-list{
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  .skills-list li{
+    display:grid;
+    grid-template-columns:150px 1fr;
+    gap:14px;
+    align-items:baseline;
+    font-size:15.5px;
+    margin-bottom:10px;
+  }
+  .skills-list li:last-child{margin-bottom:0;}
+  .skill-name{font-weight:600; color:var(--ink);}
+  .bar{
+    height:5px;
+    background:var(--rule);
+    position:relative;
+    align-self:center;
+  }
+  .bar::after{
+    content:"";
+    position:absolute;
+    left:0; top:0; bottom:0;
+    background:var(--burgundy-soft);
+    width:var(--fill, 70%);
+  }
+
+  blockquote{
+    margin:0;
+    padding:18px 22px;
+    border-left:2px solid var(--gold);
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:16px;
+    line-height:1.6;
+  }
+  blockquote footer{
+    margin-top:8px;
+    font-style:normal;
+    font-size:13.5px;
+    color:var(--gold);
+  }
+
+  .refs{
+    display:grid;
+    gap:16px;
+  }
+  .ref-item{font-size:15.5px;}
+  .ref-item .name{font-weight:600; display:block;}
+  .ref-item .role{color:var(--ink-soft); font-style:italic; font-size:14.5px;}
+
+  footer.sign{
+    text-align:center;
+    padding-top:26px;
+    border-top:1px solid var(--rule);
+    font-size:14px;
+    color:var(--ink-soft);
+    font-style:italic;
+  }
+  .stamp{
+    display:inline-block;
+    margin-top:12px;
+    padding:6px 18px;
+    border:1px solid var(--burgundy);
+    color:var(--burgundy);
+    font-family:'Cormorant Garamond', serif;
+    font-size:15px;
+    letter-spacing:0.03em;
+    transform:rotate(-2deg);
+  }
+
+  @media (max-width:560px){
+    .sheet{padding:44px 26px 40px;}
+    h1{font-size:40px;}
+    .skills-list li{grid-template-columns:110px 1fr;}
+  }
+</style>
+</head>
+<body>
+<div class="sheet">
+
+  <header>
+    <p class="kicker">Curriculum Vitae — candidatura ao cargo de "pessoa especial"</p>
+    <h1>Edney Martins</h1>
+    <p class="role">18 anos · poeta amador, melómano e defeito de fábrica encantador</p>
+    <div class="contact-line">
+      <span>📞 +258 84 573 4174</span>
+      <span>📍 Maputo, Moçambique</span>
+      <span>💌 disponível para conversas longas às 23h</span>
+    </div>
+  </header>
+
+  <section>
+    <h2>Perfil</h2>
+    <hr class="rule">
+    <p class="lead">Candidato sério, mas com sentido de humor suficiente para tornar a espera em qualquer fila divertida.</p>
+    <p>Sou uma pessoa que escreve poemas quando está feliz e também quando está triste — a diferença está só na rima. Gosto de música o suficiente para ter uma playlist para cada estado de alma, incluindo aquele estado indefinido de "não sei o que sinto, mas soa bem em fundo". Considero-me bonito, mas de uma forma que precisa de ser confirmada por terceiros para não parecer arrogância. Sério quando a situação pede, brincalhão em todos os outros momentos, que são a maioria.</p>
+  </section>
+
+  <section>
+    <h2>Objetivo</h2>
+    <hr class="rule">
+    <p>Encontrar alguém disposto a ouvir um poema mediano com a mesma atenção com que ouviria uma grande notícia, rir de piadas que só melhoram com o tempo (e com contexto) e construir, com calma e sem pressa, algo que valha a pena escrever sobre — de preferência em verso.</p>
+  </section>
+
+  <section>
+    <h2>Competências</h2>
+    <p class="section-sub">Avaliação honesta, sem inflação de currículo</p>
+    <hr class="rule">
+    <ul class="skills-list">
+      <li><span class="skill-name">Humor</span><div class="bar" style="--fill:92%"></div></li>
+      <li><span class="skill-name">Escrita de poemas</span><div class="bar" style="--fill:85%"></div></li>
+      <li><span class="skill-name">Gosto musical</span><div class="bar" style="--fill:95%"></div></li>
+      <li><span class="skill-name">Pontualidade</span><div class="bar" style="--fill:55%"></div></li>
+      <li><span class="skill-name">Ser bonito</span><div class="bar" style="--fill:88%"></div></li>
+      <li><span class="skill-name">Ouvir sem interromper</span><div class="bar" style="--fill:78%"></div></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Experiência</h2>
+    <p class="section-sub">Trajetória relevante para a função</p>
+    <hr class="rule">
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Amigo que escreve poemas nas notas do telemóvel</span>
+        <span class="entry-date">contínuo</span>
+      </div>
+      <p class="entry-desc">Produção regular de versos sobre pôr-do-sol, saudade e músicas que ainda não foram lançadas.</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">DJ não oficial de qualquer grupo de amigos</span>
+        <span class="entry-date">há vários anos</span>
+      </div>
+      <p class="entry-desc">Responsável por decidir a trilha sonora de qualquer momento, convidado ou não.</p>
+    </div>
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Pessoa engraçada em situações sérias</span>
+        <span class="entry-date">desde sempre</span>
+      </div>
+      <p class="entry-desc">Especialista em aliviar tensão sem desviar do assunto — sabe quando parar de brincar.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Formação sentimental</h2>
+    <p class="section-sub">Certificações não reconhecidas por nenhum ministério</p>
+    <hr class="rule">
+    <div class="grid-2">
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Curso avançado de metáforas</span>
+          <span class="entry-date">autodidata</span>
+        </div>
+        <p class="entry-desc">Especialização em comparar sentimentos com coisas do quotidiano.</p>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-title">Certificado em playlists de qualidade</span>
+          <span class="entry-date">nível avançado</span>
+        </div>
+        <p class="entry-desc">Nenhuma música fora de contexto, garantido.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Recomendação</h2>
+    <hr class="rule">
+    <blockquote>
+      "Diz que vem só cinco minutos e fica a noite toda a falar de música. Depois manda um poema a explicar por que se atrasou."
+      <footer>— Um amigo, sob anonimato para preservar a amizade</footer>
+    </blockquote>
+  </section>
+
+  <section>
+    <h2>Referências disponíveis</h2>
+    <hr class="rule">
+    <div class="refs">
+      <div class="ref-item">
+        <span class="name">A playlist "Para pensar em ti"</span>
+        <span class="role">testemunha do bom gosto musical</span>
+      </div>
+      <div class="ref-item">
+        <span class="name">O caderno de poemas inacabados</span>
+        <span class="role">prova de sensibilidade, mesmo sem final feito</span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="sign">
+    <p>Candidatura submetida com sinceridade, uma pitada de exagero e intenções sérias.</p>
+    <span class="stamp">aprovado por mim mesmo</span>
+  </footer>
+
+</div>
+</body>
+</html>
